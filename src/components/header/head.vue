@@ -1,5 +1,8 @@
 <template>
-  <router-view></router-view>
+  <header id='head_top'>
+   <span>这里是头部</span>
+	</header>
+	
 </template>
 
 <script>
