@@ -1,12 +1,13 @@
 <template>
   <header id='head_top'>
-   <span>这里是头部</span>
+  <span>奥斯卡的加拉空间的卡萨记得来</span>
 	</header>
-	
+
 </template>
 
 <script>
 export default {
+	props: ['signinUp', 'headTitle', 'goBack']
 }
 </script>
 
