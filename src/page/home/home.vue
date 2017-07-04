@@ -102,6 +102,9 @@ export default {
   -webkit-column-gap: 5px;
   -moz-column-gap: 5px;
 }
+.song-sheet .list li, .song-sheet .list img{
+  width: 100%;
+}
 .song-sheet .list p{
   height: 40px;
   padding: 0 10px;
