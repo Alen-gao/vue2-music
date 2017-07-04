@@ -83,7 +83,7 @@ export default {
 .song-sheet .title{
   font-size: 14px;
   line-height: 24px;
-  font-weight: 300;
+  font-weight: 300; 
   text-indent: 20px;
   position: relative;
 }
