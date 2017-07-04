@@ -22,6 +22,9 @@ module.exports = {
     extensions: ['.js', '.vue', '.json'],
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
+      'src': path.resolve(__dirname, '../src'),
+      'assets': path.resolve(__dirname, '../src/assets'),
+      'components': path.resolve(__dirname, '../src/components'),
       '@': resolve('src')
     }
   },
@@ -31,6 +34,16 @@ module.exports = {
         test: /\.vue$/,
         loader: 'vue-loader',
         options: vueLoaderConfig
+      },
+      {
+        test: /\.css$/,
+        loader: 'vue-style-loader!css-loader',
+        include: [resolve('src'), resolve('test')]
+      },
+      {
+        test: /\.less$/,
+        loader: 'vue-style-loader!css-loader!less-loader',
+        include: [resolve('src'), resolve('test')]
       },
       {
         test: /\.js$/,

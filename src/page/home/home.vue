@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="font24">
     <nav-top ></nav-top>
     <ul class="top-tab">
       <li class="tab-item active">个性推荐</li>
@@ -44,6 +44,7 @@
 
 <script>
 import navTop from '../../components/header/head'
+import init from '../../plugins/init.js'
 export default {
   components:{
     navTop
@@ -52,18 +53,22 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
+<style lang="less">
+@rem: 40rem;
+.font24 {
+  font-size: 24/@rem;
+}
 .top-tab {
   width: 100%;
   -webkit-column-count: 3;  
-  -webkit-column-gap: 5px;
+  -webkit-column-gap: 10/@rem;
   -moz-column-count: 3;  
-  -moz-column-gap: 5px;  
+  -moz-column-gap: 10/@rem;
 }
 .top-tab .tab-item{
-  line-height: 40px;
+  line-height: 60/@rem;
   text-align: center;
-  margin: 0 20px;
+  margin: 0 20/@rem;
   border-bottom: 2px solid #26272b;
 }
 .top-tab .tab-item.active{
@@ -71,7 +76,7 @@ export default {
   border-color: #d00d0d;
 }
 .banner {
-  margin-bottom: 20px;
+  margin-bottom: 20/@rem;
   width: 100%;
 }
 .banner img {
@@ -81,33 +86,32 @@ export default {
   width: 100%;
 }
 .song-sheet .title{
-  font-size: 14px;
-  line-height: 24px;
+  line-height: 35/@rem;
   font-weight: 300; 
-  text-indent: 20px;
+  text-indent: 20/@rem;
   position: relative;
 }
 .song-sheet .title:after {
   content: '';
-  height: 24px;
+  height: 35/@rem;
   border-left: 2px solid #d00d0d;
   position: absolute;
   top: 0;
-  left: 10px;
+  left: 10/@rem;
 }
 .song-sheet .list {
-  margin-top: 10px;
+  margin-top: 10/@rem;
   -webkit-column-count: 3;
   -moz-column-count: 3;
-  -webkit-column-gap: 5px;
-  -moz-column-gap: 5px;
+  -webkit-column-gap: 5/@rem;
+  -moz-column-gap: 5/@rem;
 }
 .song-sheet .list li, .song-sheet .list img{
   width: 100%;
 }
 .song-sheet .list p{
-  height: 40px;
-  padding: 0 10px;
-  line-height: 20px;
+  height: 60/@rem;
+  padding: 0 10/@rem;
+  line-height: 40/@rem;
 }
 </style>
