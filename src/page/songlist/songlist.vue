@@ -1,44 +1,6 @@
 <template>
   <div class="font24">
-    <nav-top ></nav-top>
-    <ul class="top-tab">
-      <router-link to="/" class="tab-item active">个性推荐</router-link>
-      <router-link to="/songlist" class="tab-item">歌单</router-link>
-      <router-link to="/" class="tab-item">排行榜</router-link>
-    </ul>
-    <div class="banner">
-      <img src="../../images/banner01.jpg">
-    </div>
-    <div class="song-sheet">
-      <h3 class="title">推荐歌单</h3>
-      <ul class="list">
-        <li>
-          <img src="../../images/song/01.jpg">
-          <p>黄家驹专辑</p>
-        </li>
-        <li>
-          <img src="../../images/song/02.jpg">
-          <p>周杰伦专辑</p>
-        </li>
-        <li>
-          <img src="../../images/song/03.jpg">
-          <p>刘德华专辑</p>
-        </li>
-        <li>
-          <img src="../../images/song/04.jpg">
-          <p>林俊杰专辑</p>
-        </li>
-        <li>
-          <img src="../../images/song/05.jpg">
-          <p>许巍专辑</p>
-        </li>
-        <li>
-          <img src="../../images/song/06.jpg">
-          <p>FIR专辑</p>
-        </li>
-
-      </ul>
-    </div>
+    
   </div>
 </template>
 

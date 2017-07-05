@@ -1,5 +1,6 @@
 import App from '../App'
-const home = r => require.ensure([], () => r(require('../page/home/home')), 'home')
+const home = r => require.ensure([], () => r(require('../page/home/home')), 'home');
+const songlist = r => require.ensure([], () => r(require('../page/songlist/songlist')), 'songlist')
 
 export default [{
   path: '/',
@@ -7,6 +8,9 @@ export default [{
   children: [{
     path: '/Allen',
     component: home,
+  } , {
+    path: '/songlist',
+    component: songlist,
   },
   ]
 }]
