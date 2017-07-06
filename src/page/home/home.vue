@@ -1,11 +1,6 @@
 <template>
   <div class="font24">
-    <nav-top ></nav-top>
-    <ul class="top-tab">
-      <router-link to="/" class="tab-item active">个性推荐</router-link>
-      <router-link to="/songlist" class="tab-item">歌单</router-link>
-      <router-link to="/" class="tab-item">排行榜</router-link>
-    </ul>
+    <main-top></main-top>
     <div class="banner">
       <img src="../../images/banner01.jpg">
     </div>
@@ -39,15 +34,27 @@
 
       </ul>
     </div>
+    <div class="newsong-list">
+      <h3 class="title">最新音乐</h3>
+      <ul>
+        <li>
+          <div class="max">
+            <p class="name">在希望的田野上</p>
+            <span>Allen gao</span>
+          </div>
+          <div class="min"></div>
+        </li>
+      </ul>
+    </div>
   </div>
 </template>
 
 <script>
-import navTop from '../../components/header/head'
+import mainTop from '../../components/header/mainhead'
 import init from '../../plugins/init.js'
 export default {
   components:{
-    navTop
+    mainTop
   }
 }
 </script>
@@ -58,60 +65,23 @@ export default {
 .font24 {
   font-size: 24/@rem;
 }
-.top-tab {
-  width: 100%;
-  -webkit-column-count: 3;  
-  -webkit-column-gap: 10/@rem;
-  -moz-column-count: 3;  
-  -moz-column-gap: 10/@rem;
-}
-.top-tab .tab-item{
-  line-height: 60/@rem;
-  text-align: center;
-  margin: 0 20/@rem;
-  border-bottom: 2px solid #26272b;
-}
-.top-tab .tab-item.active{
-  color: #d00d0d;
-  border-color: #d00d0d;
-}
-.banner {
-  margin-bottom: 20/@rem;
-  width: 100%;
-}
-.banner img {
-  max-width: 100%;
-}
 .song-sheet {
   width: 100%;
-}
-.song-sheet .title{
-  line-height: 35/@rem;
-  font-weight: 300; 
-  text-indent: 20/@rem;
-  position: relative;
-}
-.song-sheet .title:after {
-  content: '';
-  height: 35/@rem;
-  border-left: 2px solid #d00d0d;
-  position: absolute;
-  top: 0;
-  left: 10/@rem;
-}
-.song-sheet .list {
-  margin-top: 10/@rem;
-  -webkit-column-count: 3;
-  -moz-column-count: 3;
-  -webkit-column-gap: 5/@rem;
-  -moz-column-gap: 5/@rem;
-}
-.song-sheet .list li, .song-sheet .list img{
-  width: 100%;
-}
-.song-sheet .list p{
-  height: 60/@rem;
-  padding: 0 10/@rem;
-  line-height: 40/@rem;
+  .list {
+    margin-top: 10/@rem;
+    -webkit-column-count: 3;
+    -moz-column-count: 3;
+    -webkit-column-gap: 5/@rem;
+    -moz-column-gap: 5/@rem;
+    li, img {
+      width: 100%;
+    }
+    p{
+      font-size: 20/@rem;
+      height: 60/@rem;
+      padding: 0 10/@rem;
+      line-height: 40/@rem;
+    }
+  }
 }
 </style>

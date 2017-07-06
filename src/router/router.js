@@ -1,16 +1,24 @@
 import App from '../App'
 const home = r => require.ensure([], () => r(require('../page/home/home')), 'home');
-const songlist = r => require.ensure([], () => r(require('../page/songlist/songlist')), 'songlist')
+const main = r => require.ensure([], () => r(require('../page/main/main')), 'main');
+const ranking = r => require.ensure([], () => r(require('../page/ranking/ranking')), 'ranking');
+const songsheet = r => require.ensure([], () => r(require('../page/songsheet/songsheet')), 'songsheet')
 
 export default [{
   path: '/',
-  component: home,
+  component: App,
   children: [{
-    path: '/Allen',
+    path: '',
     component: home,
-  } , {
-    path: '/songlist',
-    component: songlist,
-  },
-  ]
-}]
+  },{
+    path: '/home',
+    component: home,
+  },{
+    path: '/ranking',
+    component: ranking,
+  },{
+    path: '/songsheet',
+    component: songsheet,
+  }]
+} 
+]
