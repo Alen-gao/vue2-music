@@ -10,9 +10,44 @@
         <li>
           <div class="max">
             <p class="name">在希望的田野上</p>
-            <span>Allen gao</span>
+            <span class="des">Allen gao</span>
           </div>
-          <div class="min"></div>
+          <div class="min"><span>播放</span></div>
+        </li>
+        <li>
+          <div class="max">
+            <p class="name">在希望的田野上</p>
+            <span class="des">Allen gao</span>
+          </div>
+          <div class="min"><span>播放</span></div>
+        </li>
+        <li>
+          <div class="max">
+            <p class="name">在希望的田野上</p>
+            <span class="des">Allen gao</span>
+          </div>
+          <div class="min"><span>播放</span></div>
+        </li>
+        <li>
+          <div class="max">
+            <p class="name">在希望的田野上</p>
+            <span class="des">Allen gao</span>
+          </div>
+          <div class="min"><span>播放</span></div>
+        </li>
+        <li>
+          <div class="max">
+            <p class="name">在希望的田野上</p>
+            <span class="des">Allen gao</span>
+          </div>
+          <div class="min"><span>播放</span></div>
+        </li>
+        <li>
+          <div class="max">
+            <p class="name">在希望的田野上</p>
+            <span class="des">Allen gao</span>
+          </div>
+          <div class="min"><span>播放</span></div>
         </li>
       </ul>
     </div>

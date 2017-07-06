@@ -27,8 +27,9 @@ export default {
   position: fixed;
   left: 0;
   top: 0;
+  background-color: #26272b;
   .tab-item{
-    line-height: 60/@rem;
+    line-height: 80/@rem;
     text-align: center;
     margin: 0 20/@rem;
     border-bottom: 2px solid #26272b;
@@ -75,26 +76,33 @@ export default {
     display: block;
     li {
       width: 100%;
-      height: 60/@rem;
       display:flex;
       flex-direction: row;
       justify-content: space-around;
       align-items:baseline;
       align-content: space-between;
+      border-bottom: 1px solid #333;
+      padding: 10/@rem 0;
+      overflow: hidden;
       div {
         height: 100%;
       }
       .max {
         flex: 5;
         .name {
-
+          line-height: 24/@rem;
         }
         .des {
-          font-size: 16/@rem;
+          color: #666;
+          font-size: 18/@rem;
+          line-height: 20/@rem;
         }
       }
       .min {
         flex: 1;
+        span {
+          display: inline-block;
+        }
       }
     }
   }
