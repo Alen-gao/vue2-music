@@ -1,5 +1,5 @@
 <template>
-  <div class="font24">
+  <div class="font22">
     <main-top></main-top>
     <div class="banner">
       <img src="../../images/banner01.jpg">

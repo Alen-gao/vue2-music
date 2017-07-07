@@ -1,8 +1,8 @@
 <template>
   <ul class="top-tab">
     <li class="tab-item active"><router-link to="/">个性推荐</router-link></li>
-    <li class="tab-item"><router-link to="/songsheet">歌单</router-link></li>
-    <li class="tab-item"><router-link to="/search" >排行榜</router-link></li>
+    <li class="tab-item"><router-link to="/songlist">歌单</router-link></li>
+    <li class="tab-item"><router-link to="/search" >搜素</router-link></li>
   </ul>
 </template>
 
@@ -17,6 +17,12 @@ export default {
 @rem: 40rem;
 .font24 {
   font-size: 24/@rem;
+}
+.font22 {
+  font-size: 22/@rem;
+}
+.font20 {
+  font-size: 20/@rem;
 }
 .font18 {
   font-size: 18/@rem;

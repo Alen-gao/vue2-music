@@ -60,7 +60,7 @@ export default {
 <style lang="less">
 @rem: 40rem;
 .search {
-	margin: 25/@rem;
+	margin: 15/@rem;
 	margin-top: 60/@rem;
 	.search-val {
 		width: 100%;
@@ -75,7 +75,7 @@ export default {
 	}
 }
 .hot-search {
-	margin: 25/@rem;
+	margin: 25/@rem 15/@rem;
 	margin-top: 40/@rem;
 	.title{
 		text-indent: 0px;
@@ -98,7 +98,7 @@ export default {
 	}
 }
 .search-log{
-	margin: 25/@rem;
+	margin: 25/@rem 15/@rem;
 	margin-top: 40/@rem;
 	ul{
 		overflow: hidden;

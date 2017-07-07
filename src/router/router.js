@@ -2,6 +2,7 @@ import App from '../App'
 const home = r => require.ensure([], () => r(require('../page/home/home')), 'home');
 const main = r => require.ensure([], () => r(require('../page/main/main')), 'main');
 const search = r => require.ensure([], () => r(require('../page/search/search')), 'search');
+const songlist = r => require.ensure([], () => r(require('../page/songlist/songlist')), 'songlist')
 const songsheet = r => require.ensure([], () => r(require('../page/songsheet/songsheet')), 'songsheet')
 
 export default [{
@@ -16,6 +17,9 @@ export default [{
   },{
     path: '/search',
     component: search,
+  },{
+    path: '/songlist',
+    component: songlist,
   },{
     path: '/songsheet',
     component: songsheet,
