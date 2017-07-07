@@ -18,6 +18,9 @@ export default {
 .font24 {
   font-size: 24/@rem;
 }
+.font18 {
+  font-size: 18/@rem;
+}
 .top-tab {
   width: 100%;
   -webkit-column-count: 3;  
@@ -27,28 +30,36 @@ export default {
   position: fixed;
   left: 0;
   top: 0;
-  background-color: #26272b;
+  background-color: #1e1d20;
   .tab-item{
     line-height: 80/@rem;
     text-align: center;
     margin: 0 20/@rem;
-    border-bottom: 2px solid #26272b;
+    position: relative;
     a{
       display: block;
       color: #999;
     }
     &.active{
-      color: #d00d0d;
-      border-color: #d00d0d;
+      color: #b62e2c;
       a {
         color: #d00d0d;
+        &:after {
+          content: '';
+          width: 100%;
+          height: 2px;
+          position: absolute;
+          bottom: 0px;
+          left: 0;
+          background-color: #b62e2c;
+        }
       }
     }
   }
 }
 .banner {
   width: 100%;
-  margin-top: 62/@rem;
+  margin-top: 60/@rem;
   margin-bottom: 30/@rem;
   overflow: hidden;
   img {
