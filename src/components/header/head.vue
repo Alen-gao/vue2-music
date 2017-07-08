@@ -1,9 +1,9 @@
 <template>
-  <ul class="top-tab">
-    <li class="tab-item active"><router-link to="/">个性推荐</router-link></li>
-    <li class="tab-item"><router-link to="/songsheet">歌单</router-link></li>
-    <li class="tab-item"><router-link to="/" >排行榜</router-link></li>
-  </ul>
+  <div class="header sizing">
+    <div class="left"> 返回 </div>
+    <div class="center"> 歌单 </div>
+    <div class="right"> 返回 </div>
+  </div>
 </template>
 
 <script>
@@ -18,31 +18,41 @@ export default {
 .font24 {
   font-size: 24/@rem;
 }
-.top-tab {
+.font22 {
+  font-size: 22/@rem;
+}
+.font20 {
+  font-size: 20/@rem;
+}
+.font18 {
+  font-size: 18/@rem;
+}
+.header {
   width: 100%;
-  -webkit-column-count: 3;  
-  -webkit-column-gap: 10/@rem;
-  -moz-column-count: 3;  
-  -moz-column-gap: 10/@rem;
+  height: 80/@rem;
+  line-height: 80/@rem;
+  display:flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items:baseline;
+  align-content: space-between;
+  padding: 0 10/@rem;
+  background-color: rgba(38, 37, 41, 0.2);
   position: fixed;
   left: 0;
   top: 0;
-  .tab-item{
-    line-height: 60/@rem;
+  z-index: 2;
+  .left{
+    flex: 1;
+    text-align: left;
+  }
+  .center{
+    flex: 6;
     text-align: center;
-    margin: 0 20/@rem;
-    border-bottom: 2px solid #26272b;
-    a{
-      display: block;
-      color: #999;
-    }
-    &.active{
-      color: #d00d0d;
-      border-color: #d00d0d;
-      a {
-        color: #d00d0d;
-      }
-    }
+  }
+  .right{
+    flex: 1;
+    text-align: right;
   }
 }
 </style>
