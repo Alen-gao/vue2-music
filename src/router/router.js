@@ -4,6 +4,7 @@ const main = r => require.ensure([], () => r(require('../page/main/main')), 'mai
 const search = r => require.ensure([], () => r(require('../page/search/search')), 'search');
 const songlist = r => require.ensure([], () => r(require('../page/songlist/songlist')), 'songlist')
 const songsheet = r => require.ensure([], () => r(require('../page/songsheet/songsheet')), 'songsheet')
+const songname = r => require.ensure([], () => r(require('../page/songname/songname')), 'songname')
 
 export default [{
   path: '/',
@@ -24,5 +25,8 @@ export default [{
     path: '/songsheet',
     component: songsheet,
   }]
-} 
+},{
+  path: '/songname',
+  component: songname,
+}
 ]
