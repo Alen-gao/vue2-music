@@ -15,20 +15,28 @@
       </h3>
       <ul>
         <li>
-          <div class="song-list-img"><img src="../../images/song/01.jpg"></div>
-          <p>想和男朋友一起分享的女声想和男朋友一起分享的女声</p>
+          <router-link to="/songname">
+            <div class="song-list-img"><img src="../../images/song/01.jpg"></div>
+            <p>想和男朋友一起分享的女声想和男朋友一起分享的女声</p>
+          </router-link>
         </li>
         <li>
-          <div class="song-list-img"><img src="../../images/song/02.jpg"></div>
-          <p>想和男朋友一起分享的女声</p>
+          <router-link to="/songname">
+            <div class="song-list-img"><img src="../../images/song/02.jpg"></div>
+            <p>想和男朋友一起分享的女声</p>
+          </router-link>
         </li>
         <li>
-          <div class="song-list-img"><img src="../../images/song/03.jpg"></div>
-          <p>想和男朋友一起分享的女声</p>
+          <router-link to="/songname">
+            <div class="song-list-img"><img src="../../images/song/03.jpg"></div>
+            <p>想和男朋友一起分享的女声</p>
+          </router-link>
         </li>
         <li>
-          <div class="song-list-img"><img src="../../images/song/04.jpg"></div>
-          <p>想和男朋友一起分享的女声</p>
+          <router-link to="/songname">
+            <div class="song-list-img"><img src="../../images/song/04.jpg"></div>
+            <p>想和男朋友一起分享的女声</p>
+          </router-link>
         </li>
       </ul>
     </div>
@@ -49,7 +57,7 @@ export default {
 <style lang="less">
 @rem: 40rem;
 .song-list {
-  margin-top: 40/@rem;
+  margin-top: 20/@rem;
   .title {
     text-indent: 0;
     margin: 0 15/@rem;

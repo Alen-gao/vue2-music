@@ -29,6 +29,8 @@ export default {
 }
 .top-tab {
   width: 100%;
+  height: 80/@rem;
+  line-height: 80/@rem;
   -webkit-column-count: 3;  
   -webkit-column-gap: 10/@rem;
   -moz-column-count: 3;  
@@ -38,7 +40,6 @@ export default {
   top: 0;
   background-color: #1e1d20;
   .tab-item{
-    line-height: 80/@rem;
     text-align: center;
     margin: 0 20/@rem;
     position: relative;
