@@ -12,10 +12,22 @@
         </div>
       </div>
       <div class="song-oper">
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
+        <div>
+          <p>添加</p>
+          <span>224</span>
+        </div>
+        <div>
+          <p>添加</p>
+          <span>20</span>
+        </div>
+        <div>
+          <p>添加</p>
+          <span>5</span>
+        </div>
+        <div>
+          <p>添加</p>
+          <span>下载</span>
+        </div>
       </div>
     </div>
   </div>
@@ -36,8 +48,7 @@ export default {
 @rem: 40rem;
 .song-top {
   width: 100%;
-  height: 450/@rem;
-  padding: 0 10/@rem;
+  padding: 20/@rem;
   position: relative;
   padding-top: 130/@rem;
   overflow: hidden;
@@ -71,6 +82,7 @@ export default {
         color: #f0f0f0;
         font-size: 30/@rem;
         padding-top: 20/@rem;
+        padding-left: 10/@rem;
       }
     }
   }
@@ -78,9 +90,11 @@ export default {
     display: flex;
     flex-direction: row;
     position: relative;
+    padding-top: 20/@rem;
     z-index: 1;
     div {
       flex: 1;
+      text-align: center;
     }
   }
 }
