@@ -33,7 +33,7 @@
     <div class="song-bottom">
       <h3><span>播放</span><span>播放全部</span><span class="font18">(共29首)</span> <div class="fr">多选</div></h3>
       <ul class="song-class-list">
-        <li><router-link  to="songplay">
+        <li>
           <div class="left">
             1
           </div>
@@ -44,9 +44,9 @@
           <div class="right">
             <span>播放</span>
             <span>操作</span>
-          </div></router-link>
+          </div>
         </li>
-        <li><router-link  to="songplay">
+        <li>
           <div class="left">
             2
           </div>
@@ -57,9 +57,9 @@
           <div class="right">
             <span>播放</span>
             <span>操作</span>
-          </div></router-link>
+          </div>
         </li>
-        <li><router-link  to="songplay">
+        <li>
           <div class="left">
             3
           </div>
@@ -70,7 +70,7 @@
           <div class="right">
             <span>播放</span>
             <span>操作</span>
-          </div></router-link>
+          </div>
         </li>
       </ul>
     </div>
@@ -159,11 +159,8 @@ export default {
   .song-class-list {
     display: block;
     li {
-      display: block;
-      a {
-        display: flex;
-        flex-direction: row;
-      }
+      display: flex;
+      flex-direction: row;
       .left{
         flex: 2;
         color: #464646;
