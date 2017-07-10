@@ -17,18 +17,62 @@
           <span>224</span>
         </div>
         <div>
-          <p>添加</p>
+          <p>信息</p>
           <span>20</span>
         </div>
         <div>
-          <p>添加</p>
+          <p>分享</p>
           <span>5</span>
         </div>
         <div>
-          <p>添加</p>
+          <p>下载</p>
           <span>下载</span>
         </div>
       </div>
+    </div>
+    <div class="song-bottom">
+      <h3><span>播放</span><span>播放全部</span><span class="font18">(共29首)</span> <div class="fr">多选</div></h3>
+      <ul class="song-class-list">
+        <li>
+          <div class="left">
+            1
+          </div>
+          <div class="center">
+            <p class="name">小永远</p>
+            <span class="des">何洁 - 短暂的爱情</span>
+          </div>
+          <div class="right">
+            <span>播放</span>
+            <span>操作</span>
+          </div>
+        </li>
+        <li>
+          <div class="left">
+            2
+          </div>
+          <div class="center">
+            <p class="name">此生不换 (电视剧 《仙剑奇侠传三》)</p>
+            <span class="des">青鸟飞鱼 - 仙剑奇侠传三 电视原声带</span>
+          </div>
+          <div class="right">
+            <span>播放</span>
+            <span>操作</span>
+          </div>
+        </li>
+        <li>
+          <div class="left">
+            3
+          </div>
+          <div class="center">
+            <p class="name">一生有你</p>
+            <span class="des">水木年华 - 一生有你</span>
+          </div>
+          <div class="right">
+            <span>播放</span>
+            <span>操作</span>
+          </div>
+        </li>
+      </ul>
     </div>
   </div>
 </template>
@@ -95,6 +139,57 @@ export default {
     div {
       flex: 1;
       text-align: center;
+    }
+  }
+}
+.song-bottom {
+  padding: 0 10/@rem;
+  h3{
+    line-height: 80/@rem;
+    padding: 0 10/@rem;
+    font-weight: normal;
+    span {
+      display: inline-block;
+      padding-right: 10/@rem;
+    }
+    .fr {
+      float: right;
+    }
+  }
+  .song-class-list {
+    display: block;
+    li {
+      display: flex;
+      flex-direction: row;
+      .left{
+        flex: 2;
+        color: #464646;
+        font-size: 24/@rem;
+        text-align: center;
+        padding: 15/@rem 0;
+        line-height: 60/@rem;
+      }
+      .center{
+        flex: 10;
+        padding: 15/@rem 0;
+        border-top: 1px solid #2d2d2d;
+        .name {
+          font-size: 24/@rem;
+          line-height: 30/@rem;
+        }
+        .des {
+          color: #464646;
+          font-size: 18/@rem;
+          line-height: 20/@rem;
+        }
+      }
+      .right{
+        flex: 3;
+        padding: 15/@rem 0;
+        text-align: right;
+        line-height: 60/@rem;
+        border-top: 1px solid #2d2d2d;
+      }
     }
   }
 }
