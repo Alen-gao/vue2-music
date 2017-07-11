@@ -106,7 +106,7 @@ export default {
     img {
       width: 100%;
       height: 100%;
-      webkit-filter: blur(6px); /* Chrome, Opera */
+      webkit-filter: blur(60px); /* Chrome, Opera */
       -moz-filter: blur(60px);
       -ms-filter: blur(60px);    
       filter: blur(60px);

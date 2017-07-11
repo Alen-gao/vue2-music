@@ -2,7 +2,7 @@
   <div class="header sizing">
     <div class="left"> 返回 </div>
     <div class="center"> 歌单 </div>
-    <div class="right"> 返回 </div>
+    <div class="right"> 分享 </div>
   </div>
 </template>
 
