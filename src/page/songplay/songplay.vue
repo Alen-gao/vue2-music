@@ -1,51 +1,51 @@
 <template>
-  <div class="font22">
+  <div class="main font22">
     <main-top></main-top>
-    <div class="song-play">
-      <div class="song-needle"><img src="../../images/song/needle-plus.png" /></div>
-      <div class="song-back"><img src="../../images/song/01.jpg" /></div>
-      <div class="song-disc">
-        <div class="song-default"><img src="../../images/song/disc_default.png"></div>
-        <div class="song-img"><img src="../../images/song/play-img.jpg" /></div>
-        <div class="song-rotate"><img src="../../images/song/disc.png" /></div>
+      <div class="song-play">
+        <div class="song-needle"><img src="../../images/song/needle-plus.png" /></div>
+        <div class="song-back"><img src="../../images/song/01.jpg" /></div>
+        <div class="song-disc">
+          <div class="song-default"><img src="../../images/song/disc_default.png"></div>
+          <div class="song-img"><img src="../../images/song/play-img.jpg" /></div>
+          <div class="song-rotate"><img src="../../images/song/disc.png" /></div>
+        </div>
+      </div>
+      <div class="song-handle sizing">
+        <div class="share">
+          <div>
+            <p>添加</p>
+            <span>224</span>
+          </div>
+          <div>
+            <p>信息</p>
+            <span>20</span>
+          </div>
+          <div>
+            <p>分享</p>
+            <span>5</span>
+          </div>
+          <div>
+            <p>下载</p>
+            <span>下载</span>
+          </div>
+        </div>
+        <div class="speed">
+          <div class="play-time">00:00</div>
+          <div class="play-rate">
+            <span class="rate-line"></span>
+            <span class="rata-radius"></span>
+          </div>
+          <div class="total-time">00:00</div>
+        </div>
+        <div class="operation">
+          <div class="pattern">模式</div>
+          <div class="backoff">后退</div>
+          <div class="suspend">暂停</div>
+          <div class="forward">前进</div>
+          <div class="choice">选择歌单</div>
+        </div>
       </div>
     </div>
-    <div class="song-handle sizing">
-      <div class="share">
-        <div>
-          <p>添加</p>
-          <span>224</span>
-        </div>
-        <div>
-          <p>信息</p>
-          <span>20</span>
-        </div>
-        <div>
-          <p>分享</p>
-          <span>5</span>
-        </div>
-        <div>
-          <p>下载</p>
-          <span>下载</span>
-        </div>
-      </div>
-      <div class="speed">
-        <div class="play-time">00:00</div>
-        <div class="play-rate">
-          <span class="rate-line"></span>
-          <span class="rata-radius"></span>
-        </div>
-        <div class="total-time">00:00</div>
-      </div>
-      <div class="operation">
-        <div class="pattern">模式</div>
-        <div class="backoff">后退</div>
-        <div class="suspend">暂停</div>
-        <div class="forward">前进</div>
-        <div class="choice">选择歌单</div>
-      </div>
-    </div>
-  </div>
 </template>
 
 <script>
@@ -62,6 +62,8 @@ export default {
 <style lang="less">
 @rem: 40rem;
 .song-play {
+  max-width: 640/@rem;
+  margin: 0 auto;
   padding-top: 80/@rem;
   .song-needle {
     width: 200/@rem;
