@@ -66,7 +66,7 @@ export default {
   margin: 0 auto;
   padding-top: 80/@rem;
   .song-needle {
-    width: 200/@rem;
+    width: 180/@rem;
     height: 0px;
     position: absolute;
     top: 80/@rem;
@@ -94,11 +94,11 @@ export default {
     }
   }
   .song-disc {
-    width: 540/@rem;
-    height: 540/@rem;
+    width: 500/@rem;
+    height: 500/@rem;
     margin: 0 auto;
-    margin-top: 140/@rem;
-    border-radius: 360/@rem;
+    margin-top: 120/@rem;
+    border-radius: 500/@rem;
     position: relative;
     z-index: 2;
     webkit-animation: music_disc 20s linear infinite;  
@@ -146,7 +146,7 @@ export default {
   padding: 0 10/@rem;
   position: absolute;
   left: 0;
-  bottom: 50/@rem;
+  bottom: 20/@rem;
   z-index: 5;
   .share{
     width: 80%;

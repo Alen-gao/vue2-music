@@ -17,7 +17,7 @@
         <li>
           <router-link to="/songname">
             <div class="song-list-img"><img src="../../images/song/01.jpg"></div>
-            <p>想和男朋友一起分享的女声想和男朋友一起分享的女声</p>
+            <p>想和男朋友一起分享的女声</p>
           </router-link>
         </li>
         <li>
@@ -90,6 +90,7 @@ export default {
         }
       }
       p {
+        font-size: 22/@rem;
         height: 50/@rem;
         padding: 0 5/@rem;
         line-height: 26/@rem;
