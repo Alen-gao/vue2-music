@@ -42,7 +42,7 @@
             <p class="name">在希望的田野上</p>
             <span class="des">Allen gao</span>
           </div>
-          <div class="min"><span>播放</span></div>
+          <div class="min"><span class="iconfont">&#xe663;</span></div>
         </li>
         <li>
           <div class="max">

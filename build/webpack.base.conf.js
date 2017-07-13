@@ -38,12 +38,12 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        loader: 'vue-style-loader!css-loader',
+        loader: 'vue-style-loader!style-loader!css-loader',
         include: [resolve('src'), resolve('test')]
       },
       {
         test: /\.less$/,
-        loader: 'vue-style-loader!css-loader!less-loader',
+        loader: 'vue-style-loader!style-loader!css-loader!less-loader',
         include: [resolve('src'), resolve('test')]
       },
       {
@@ -60,10 +60,10 @@ module.exports = {
         }
       },
       {
-        test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
-        loader: 'url-loader',
+        test: /\.(woff2?|eot|ttf|otf|svg)(\?.*)?$/,
+        loader: 'url-loader!file-loader',
         options: {
-          limit: 10000,
+          limit: 90000,
           name: utils.assetsPath('fonts/[name].[hash:7].[ext]')
         }
       }
