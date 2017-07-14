@@ -25,12 +25,13 @@ export default [{
   },{
     path: '/songsheet',
     component: songsheet,
-  }]
-},{
-  path: '/songname',
-  component: songname,
-},{
-  path: '/songplay',
-  component: songplay,
+  },{
+    path: '/songname',
+    component: songname,
+  },{
+    path: '/songplay',
+    component: songplay,
+  }
+  ]
 }
 ]

@@ -1,14 +1,24 @@
 <template>
   <ul class="top-tab">
-    <li class="tab-item active"><router-link to="/">个性推荐</router-link></li>
-    <li class="tab-item"><router-link to="/songlist">歌单</router-link></li>
-    <li class="tab-item"><router-link to="/search" >搜素</router-link></li>
+    <li class="tab-item active" v-model="ligth"><router-link to="/" v-on:click="higtligth(0)">个性推荐</router-link></li> 
+    <li class="tab-item" v-model="ligth"><router-link to="/songlist" v-on:click="higtligth(1)">歌单</router-link></li>
+    <li class="tab-item" v-model="ligth"><router-link to="/search" v-on:lick="higtligth(2)">搜素</router-link></li>
   </ul>
 </template>
 
 <script>
 export default {
-  
+  data(){
+    return {
+      ligth: 100
+    }
+  },
+  methods: {
+    higtligth(index){
+      console.log('index', index);
+      this.ligth = index;
+    }
+  }
 }
 </script>
 

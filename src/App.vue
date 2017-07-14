@@ -8,5 +8,5 @@ export default {
 }
 </script>
 <style scoped>
-	@import '/style/global.css';
+  @import './style/global.css';
 </style>
