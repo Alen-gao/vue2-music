@@ -60,3 +60,12 @@ input,button,a{
   -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);  
   background-color: #555;  
 }
+@font-face {
+  font-family: 'iconfont';  /* project id 246439 */
+  src: url('http://at.alicdn.com/t/font_iqf2vm45m5wb3xr.eot');
+  src: url('http://at.alicdn.com/t/font_iqf2vm45m5wb3xr.eot?#iefix') format('embedded-opentype'),
+  url('http://at.alicdn.com/t/font_iqf2vm45m5wb3xr.woff') format('woff'),
+  url('http://at.alicdn.com/t/font_iqf2vm45m5wb3xr.ttf') format('truetype'),
+  url('http://at.alicdn.com/t/font_iqf2vm45m5wb3xr.svg#iconfont') format('svg');
+}
+.iconfont{font-family:"iconfont";}
