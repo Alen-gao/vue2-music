@@ -13,25 +13,25 @@
       </div>
       <div class="song-oper">
         <div>
-          <p>添加</p>
+          <p class="iconfont">&#xe6c0;</p>
           <span>224</span>
         </div>
         <div>
-          <p>信息</p>
+          <p class="iconfont">&#xe69c;</p>
           <span>20</span>
         </div>
         <div>
-          <p>分享</p>
+          <p class="iconfont">&#xe67e;</p>
           <span>5</span>
         </div>
         <div>
-          <p>下载</p>
+          <p class="iconfont">&#xe601;</p>
           <span>下载</span>
         </div>
       </div>
     </div>
     <div class="song-bottom">
-      <h3><span>播放</span><span>播放全部</span><span class="font18">(共29首)</span> <div class="fr">多选</div></h3>
+      <h3><span>播放</span><span>播放全部</span><span class="font18">(共29首)</span> <div class="fr"><span class="iconfont">&#xe600;</span>多选</div></h3>
       <ul class="song-class-list">
         <li><router-link  to="songplay">
           <div class="left">
@@ -42,8 +42,7 @@
             <span class="des">何洁 - 短暂的爱情</span>
           </div>
           <div class="right">
-            <span>播放</span>
-            <span>操作</span>
+            <span class="iconfont">&#xe614;</span>
           </div></router-link>
         </li>
         <li><router-link  to="songplay">
@@ -55,8 +54,7 @@
             <span class="des">青鸟飞鱼 - 仙剑奇侠传三 电视原声带</span>
           </div>
           <div class="right">
-            <span>播放</span>
-            <span>操作</span>
+            <span class="iconfont">&#xe614;</span>
           </div></router-link>
         </li>
         <li><router-link  to="songplay">
@@ -68,8 +66,7 @@
             <span class="des">水木年华 - 一生有你</span>
           </div>
           <div class="right">
-            <span>播放</span>
-            <span>操作</span>
+            <span class="iconfont">&#xe614;</span>
           </div></router-link>
         </li>
       </ul>
@@ -90,6 +87,10 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="less">
 @rem: 40rem;
+.iconfont {
+  font-size: 30/@rem;
+  font-weight: normal;
+}
 .song-top {
   width: 100%;
   padding: 20/@rem;
@@ -148,6 +149,7 @@ export default {
     line-height: 80/@rem;
     padding: 0 10/@rem;
     font-weight: normal;
+    overflow: hidden;
     span {
       display: inline-block;
       padding-right: 10/@rem;

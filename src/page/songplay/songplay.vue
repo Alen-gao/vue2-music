@@ -13,20 +13,16 @@
       <div class="song-handle sizing">
         <div class="share">
           <div>
-            <p>添加</p>
-            <span>224</span>
+            <span class="iconfont">&#xe610;</span>
           </div>
           <div>
-            <p>信息</p>
-            <span>20</span>
+            <span class="iconfont">&#xe601;</span>
           </div>
           <div>
-            <p>分享</p>
-            <span>5</span>
+            <span class="iconfont">&#xe69c;</span>
           </div>
           <div>
-            <p>下载</p>
-            <span>下载</span>
+            <span class="iconfont">&#xe602;</span>
           </div>
         </div>
         <div class="speed">
@@ -38,11 +34,11 @@
           <div class="total-time">00:00</div>
         </div>
         <div class="operation">
-          <div class="pattern">模式</div>
-          <div class="backoff">后退</div>
-          <div class="suspend">暂停</div>
-          <div class="forward">前进</div>
-          <div class="choice">选择歌单</div>
+          <div class="pattern iconfont">&#xe612;</div>
+          <div class="backoff iconfont">&#xe604;</div>
+          <div class="suspend iconfont">&#xe663;</div>
+          <div class="forward iconfont">&#xe609;</div>
+          <div class="choice iconfont">&#xe628;</div>
         </div>
       </div>
     </div>
@@ -211,12 +207,14 @@ export default {
 
     }
     .backoff{
+      font-weight: 100;
       text-align: center;
     }
     .suspend{
       text-align: center;
     }
     .forward{
+      font-weight: 100;
       text-align: center;
     }
     .choice{
