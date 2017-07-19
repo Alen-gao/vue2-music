@@ -2,7 +2,11 @@
   <div class="font18">
     <main-top></main-top>
   	<div class="search">
-  		<input class="sizing search-val" />
+	  	<div class="search-box">
+	  		<span class="search-icon iconfont">&#xe6d1;</span>
+	  		<span class="search-close iconfont">&#xe6b6;</span>
+	  		<input class="sizing search-val" />
+	  	</div>
   	</div>
   	<div class="hot-search">
   		<p class="title">热门搜索</p>
@@ -22,22 +26,22 @@
   	<div class="search-log">
   		<ul>
   			<li>
-  				<span class="left">⊙</span>
+  				<span class="left iconfont">&#xe629;</span>
   				<span class="center">清白之年</span>
   				<span class="right">×</span>
   			</li>
   			<li>
-  				<span class="left">⊙</span>
+  				<span class="left iconfont">&#xe629;</span>
   				<span class="center">李乐 漂洋过海来看你</span>
   				<span class="right">×</span>
   			</li>
   			<li>
-  				<span class="left">⊙</span>
+  				<span class="left iconfont">&#xe629;</span>
   				<span class="center">李乐 漂洋过海来看你 李宗盛</span>
   				<span class="right">×</span>
   			</li>
   			<li>
-  				<span class="left">⊙</span>
+  				<span class="left iconfont">&#xe629;</span>
   				<span class="center">李乐 漂洋过海来看你 (原唱李宗盛)</span>
   				<span class="right">×</span>
   			</li>
@@ -62,10 +66,25 @@ export default {
 .search {
 	margin: 15/@rem;
 	margin-top: 60/@rem;
+	.search-box {
+		margin-top: 120/@rem;
+		position: relative;
+		.search-icon {
+			font-size: 24/@rem;
+			position: absolute;
+			top: 12/@rem;
+			left: 18/@rem;
+		}
+		.search-close {
+			font-size: 24/@rem;
+			position: absolute;
+			top: 12/@rem;
+			right: 18/@rem;
+		}
+	}
 	.search-val {
 		width: 100%;
 		height: 50/@rem;
-		margin-top: 50/@rem;
 		border: none;
 		border: 1px solid #2d2d2d;
 		border-radius: 40/@rem;
@@ -111,7 +130,7 @@ export default {
 	    	line-height: 40/@rem;
 	    }
 	    .left{
-	    	font-size: 40/@rem;
+	    	font-size: 30/@rem;
 	    	flex: 1;
 	    }
 	    .center{
