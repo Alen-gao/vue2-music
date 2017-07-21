@@ -4,7 +4,7 @@
       <div class="song-play">
         <div class="song-needle"><img src="../../images/song/needle-plus.png" /></div>
         <div class="song-back"><img src="../../images/song/01.jpg" /></div>
-        <div class="song-disc">
+        <div class="song-disc" id="play">
           <div class="song-default"><img src="../../images/song/disc_default.png"></div>
           <div class="song-img"><img src="../../images/song/play-img.jpg" /></div>
           <div class="song-rotate"><img src="../../images/song/disc.png" /></div>
@@ -36,7 +36,7 @@
         <div class="operation">
           <div class="pattern iconfont">&#xe612;</div>
           <div class="backoff iconfont">&#xe604;</div>
-          <div class="suspend iconfont">&#xe663;</div>
+          <div class="suspend iconfont" @click="play()">&#xe663;</div>
           <div class="forward iconfont">&#xe609;</div>
           <div class="choice iconfont">&#xe628;</div>
         </div>
@@ -48,9 +48,28 @@
 import mainTop from '../../components/header/head'
 import init from '../../plugins/init.js'
 export default {
+  data(){
+    return {
+      flag: true
+    }
+  },
   components:{
     mainTop
+  },
+  methods: {
+    async play(){
+      if(this.flag){  
+          // music.pause();
+          this.flag = false;  
+          document.getElementById('play').style.webkitAnimationPlayState = "paused";  //旋转动画暂停  
+      }else{  
+          // music.play(); 
+          this.flag = true;  
+          document.getElementById('play').style.webkitAnimationPlayState = "running";  //旋转动画暂停  
+      } 
+    }
   }
+
 }
 </script>
 
@@ -211,6 +230,7 @@ export default {
       text-align: center;
     }
     .suspend{
+      font-size: 50/@rem;
       text-align: center;
     }
     .forward{
