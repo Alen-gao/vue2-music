@@ -8,7 +8,7 @@
       <h3 class="title">推荐歌单</h3>
       <ul class="list">
         <li v-for="item in songsheet">
-          <router-link :to="{path:'/songname', query: {id: item._id}}">
+          <router-link :to="{path:'/songname', query: {id: item.sid}}">
             <img v-bind:src="item.img">
             <p>{{item.name}}</p>
           </router-link>
@@ -16,49 +16,16 @@
       </ul>
     </div>
     <div class="newsong-list">
-      <h3 class="title">最新音乐</h3>
+      <h3 class="title">榜单</h3>
       <ul>
-        <li>
-          <div class="max">
-            <p class="name">在希望的田野上</p>
-            <span class="des">Allen gao</span>
-          </div>
-          <div class="min"><span class="iconfont">&#xe663;</span></div>
-        </li>
-        <li>
-          <div class="max">
-            <p class="name">在希望的田野上</p>
-            <span class="des">Allen gao</span>
-          </div>
-          <div class="min"><span>播放</span></div>
-        </li>
-        <li>
-          <div class="max">
-            <p class="name">在希望的田野上</p>
-            <span class="des">Allen gao</span>
-          </div>
-          <div class="min"><span>播放</span></div>
-        </li>
-        <li>
-          <div class="max">
-            <p class="name">在希望的田野上</p>
-            <span class="des">Allen gao</span>
-          </div>
-          <div class="min"><span>播放</span></div>
-        </li>
-        <li>
-          <div class="max">
-            <p class="name">在希望的田野上</p>
-            <span class="des">Allen gao</span>
-          </div>
-          <div class="min"><span>播放</span></div>
-        </li>
-        <li>
-          <div class="max">
-            <p class="name">在希望的田野上</p>
-            <span class="des">Allen gao</span>
-          </div>
-          <div class="min"><span>播放</span></div>
+        <li v-for="item in newsong">
+          <router-link :to="{path:'/songplay', query: {id: item.sid}}">
+            <div class="max">
+              <p class="name">{{item.name}}</p>
+              <span class="des"></span>
+            </div>
+            <div class="min"><span class="iconfont">&#xe663;</span></div>
+          </router-link>
         </li>
       </ul>
     </div>
@@ -67,12 +34,12 @@
 
 <script>
 import mainTop from '../../components/header/mainhead'
-import init from '../../plugins/init.js'
 export default {
   data(){
     return {
       banner:'',
-      songsheet:[]
+      songsheet:[],
+      newsong:[]
     }
   },
   components:{
@@ -86,8 +53,10 @@ export default {
       this.$http.post(this.Env.server+'/songsheet', {url:'http://music.163.com/#/discover'}, {emulateJSON:true}).then((res)=>{
         if (res.body.code) {
           this.banner = res.body.data.banner;
+          this.newsong = res.body.data.newsong;
           this.songsheet = res.body.data.result;
         }
+        console.log(this.newsong);
       }, (res)=> {
         console.log(res.status);
       });

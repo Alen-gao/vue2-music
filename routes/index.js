@@ -28,7 +28,7 @@ router.post('/songsheet', function(req, res, next) {
 	var url = req.body.url;
 	nodegrass.get(url, function(data,status,headers){
 		var $ = cheerio.load(data);
-		var itemUrl = [];
+		var itemUrl = [], newsong = [];
 		var banner = $('.n-ban').find('.ban').find('img').attr('src');
 		$('.m-cvrlst').find('li').each(function(index, item){
 			if (index<6) {
@@ -41,7 +41,14 @@ router.post('/songsheet', function(req, res, next) {
 				itemUrl.push(obj);
 			}
 		});
-		res.send({code:1, data:{message:'加载成功！', banner:banner, result:itemUrl}});
+		$('.n-bilst').find('.blk').eq(1).find('ol').find('li').each(function(inex, item){
+			var obj = {};
+			obj.name = $(item).children('a').text();
+			obj.url = $(item).children('a').attr('href');
+			obj.sid = $(item).find('.oper').find('.s-bg').data('res-id');
+			newsong.push(obj);
+		});
+		res.send({code:1, data:{message:'加载成功！', banner:banner, result:itemUrl, newsong:newsong}});
 	},'utf-8').on('error', function(e) {
     console.log("Got error: " + e.message);
 	});

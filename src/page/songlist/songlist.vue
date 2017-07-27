@@ -2,7 +2,7 @@
   <div class="font22">
     <main-top></main-top>
     <div class="banner">
-      <img v-bind:src="banner">
+      <img src="../../images/banner01.jpg" />
     </div>
     <div class="song-list">
       <h3 class="title">
