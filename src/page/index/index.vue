@@ -1,6 +1,5 @@
 <template>
   <div class="font22">
-    <div><main-top></main-top></div>
     <div class="banner">
       <img src="../../images/banner01.jpg">
     </div>
@@ -85,12 +84,7 @@
 </template>
 
 <script>
-import mainTop from '../../components/header/mainhead'
-import init from '../../plugins/init.js'
 export default {
-  components:{
-    mainTop
-  }
 }
 </script>
 

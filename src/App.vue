@@ -5,6 +5,7 @@
 </template>
 
 <script>
+import init from './plugins/init.js'
 export default {
 	
 }
