@@ -10,6 +10,7 @@
         <li v-for="item in songsheet">
           <img v-bind:src="item.img">
           <p>{{item.name}}</p>
+          <p>{{item.author}}</p>
         </li>
       </ul>
     </div>
@@ -109,11 +110,15 @@ export default {
     li, img {
       width: 100%;
     }
+    li {
+      margin-bottom: 20/@rem;
+    }
     p{
       font-size: 20/@rem;
-      height: 60/@rem;
+      height: 30/@rem;
       padding: 0 10/@rem;
-      line-height: 40/@rem;
+      line-height: 30/@rem;
+      overflow: hidden;
     }
   }
 }

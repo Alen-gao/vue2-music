@@ -29,13 +29,16 @@ router.post('/songsheet', function(req, res, next) {
 		var $ = cheerio.load(data);
 		var itemUrl = [];
 		$('.m-cvrlst').find('li').each(function(index, item){
-			var obj = {};
-			obj.sid = $(item).find('.u-cover').find('.icon-play').data('res-id');
-			obj.name = $(item).find('.dec').find('.f-thide').text();
-			obj.href = $(item).find('.u-cover').find('.msk').attr('href');
-			obj.img = $(item).find('.u-cover').find('.j-flag').attr('src');
-			obj.number = $(item).find('.u-cover').find('.nb').text();
-			itemUrl.push(obj);
+			if (index<9) {
+				var obj = {};
+				obj.sid = $(item).find('.u-cover').find('.icon-play').data('res-id');
+				obj.name = $(item).find('.dec').find('.f-thide').text();
+				obj.href = $(item).find('.u-cover').find('.msk').attr('href');
+				obj.img = $(item).find('.u-cover').find('.j-flag').attr('src');
+				obj.number = $(item).find('.u-cover').find('.nb').text();
+				obj.author = 'by ' + $(item).find('.f-thide.s-fc3').text();
+				itemUrl.push(obj);
+			}
 		});
 		res.send({code:1, data:{message:'加载成功！', result:itemUrl}});
 	},'utf-8').on('error', function(e) {
