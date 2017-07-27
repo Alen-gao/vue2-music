@@ -25,30 +25,54 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/songsheet', function(req, res, next) {
-	nodegrass.get('http://music.163.com/#/discover/playlist', function(data,status,headers){
+	var url = req.body.url;
+	nodegrass.get(url, function(data,status,headers){
 		var $ = cheerio.load(data);
 		var itemUrl = [];
+		var banner = $('.n-ban').find('.ban').find('img').attr('src');
 		$('.m-cvrlst').find('li').each(function(index, item){
-			if (index<9) {
+			if (index<6) {
 				var obj = {};
-				obj.sid = $(item).find('.u-cover').find('.icon-play').data('res-id');
-				obj.name = $(item).find('.dec').find('.f-thide').text();
-				obj.href = $(item).find('.u-cover').find('.msk').attr('href');
-				obj.img = $(item).find('.u-cover').find('.j-flag').attr('src');
+				obj.sid = $(item).find('.u-cover>a').data('res-id');
+				obj.name = $(item).find('.u-cover>a').attr('title');
+				obj.href = $(item).find('.u-cover>a').attr('href');
+				obj.img = $(item).find('.u-cover>img').attr('src');
 				obj.number = $(item).find('.u-cover').find('.nb').text();
-				obj.author = 'by ' + $(item).find('.f-thide.s-fc3').text();
 				itemUrl.push(obj);
 			}
 		});
-		res.send({code:1, data:{message:'加载成功！', result:itemUrl}});
+		res.send({code:1, data:{message:'加载成功！', banner:banner, result:itemUrl}});
 	},'utf-8').on('error', function(e) {
-	     console.log("Got error: " + e.message);
+    console.log("Got error: " + e.message);
 	});
-
 });
 
 router.post('/songlist', function(req, res, next) {
-  
+	var url = req.body.url;
+  nodegrass.get(url, function(data,status,headers){
+
+		var $ = cheerio.load(data);
+		var itemUrl = [];
+		var banner = $('.n-ban').find('.ban').find('img').attr('src');
+
+		$('.m-cvrlst').find('li').each(function(index, item){
+			var obj = {}
+			obj.sid = $(item).find('.u-cover').find('.icon-play').data('res-id');
+			obj.name = $(item).find('.dec').find('.f-thide').text();
+			obj.href = $(item).find('.u-cover').find('.msk').attr('href');
+			obj.img = $(item).find('.u-cover').find('.j-flag').attr('src');
+			obj.number = $(item).find('.u-cover').find('.nb').text();
+			obj.author = 'by ' + $(item).find('.f-thide.s-fc3').text();
+			itemUrl.push(obj);
+		});
+
+		res.send({code:1, data:{message:'加载成功！', banner:banner, result:itemUrl}});
+
+	},'utf-8').on('error', function(e) {
+
+    console.log("Got error: " + e.message);
+
+	});
 });
 
 router.post('/search', function(req, res, next) {

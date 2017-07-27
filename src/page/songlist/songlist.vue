@@ -2,7 +2,7 @@
   <div class="font22">
     <main-top></main-top>
     <div class="banner">
-      <img src="../../images/banner01.jpg">
+      <img v-bind:src="banner">
     </div>
     <div class="song-list">
       <h3 class="title">
@@ -14,28 +14,11 @@
         </div>
       </h3>
       <ul>
-        <li>
-          <router-link to="/songname">
-            <div class="song-list-img"><img src="../../images/song/01.jpg"></div>
-            <p>想和男朋友一起分享的女声</p>
-          </router-link>
-        </li>
-        <li>
-          <router-link to="/songname">
-            <div class="song-list-img"><img src="../../images/song/02.jpg"></div>
-            <p>想和男朋友一起分享的女声</p>
-          </router-link>
-        </li>
-        <li>
-          <router-link to="/songname">
-            <div class="song-list-img"><img src="../../images/song/03.jpg"></div>
-            <p>想和男朋友一起分享的女声</p>
-          </router-link>
-        </li>
-        <li>
-          <router-link to="/songname">
-            <div class="song-list-img"><img src="../../images/song/04.jpg"></div>
-            <p>想和男朋友一起分享的女声</p>
+        <li class="sizing" v-for="item in songsheet">
+          <router-link :to="{path:'/songname', query: {id: item.sid}}">
+            <div class="song-list-img"><img v-bind:src="item.img" /></div>
+            <p>{{item.name}}</p>
+            <p>{{item.author}}</p>
           </router-link>
         </li>
       </ul>
@@ -47,8 +30,29 @@
 import mainTop from '../../components/header/mainhead'
 import init from '../../plugins/init.js'
 export default {
+  data(){
+    return {
+      banner:'',
+      songsheet:[]
+    }
+  },
   components:{
     mainTop
+  },
+  mounted(){
+    this.GetSongSheet();
+  },
+  methods:{
+    async GetSongSheet(){
+      this.$http.post(this.Env.server+'/songlist', {url:'http://music.163.com/#/discover/playlist'}, {emulateJSON:true}).then((res)=>{
+        if (res.body.code) {
+          this.banner = res.body.data.banner;
+          this.songsheet = res.body.data.result;
+        }
+      }, (res)=> {
+        console.log(res.status);
+      });
+    }
   }
 }
 </script>
@@ -76,11 +80,17 @@ export default {
     }
   }
   ul {
-    -webkit-column-count: 2;  
-    -webkit-column-gap: 5/@rem;
-    -moz-column-count: 2;  
-    -moz-column-gap: 5/@rem;
+    width: 100%;
     li {
+      width: 50%;
+      float: left;
+      margin-bottom: 20/@rem;
+      &:nth-child(2n) {
+        padding-left: 5/@rem;
+      }
+      &:nth-child(2n+1) {
+        padding-right: 5/@rem;
+      }
       .song-list-img {
         width: 100%;
         display: block;
@@ -91,10 +101,11 @@ export default {
       }
       p {
         font-size: 22/@rem;
-        height: 50/@rem;
+        height: 30/@rem;
+        overflow: hidden;
         padding: 0 5/@rem;
-        line-height: 26/@rem;
-        padding-bottom: 25/@rem;
+        line-height: 30/@rem;
+        margin-bottom: 10/@rem;
       }
     }
   }

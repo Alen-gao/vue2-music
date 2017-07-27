@@ -2,15 +2,16 @@
   <div class="font22">
     <div><main-top></main-top></div>
     <div class="banner">
-      <img src="../../images/banner01.jpg">
+      <img v-bind:src="banner">
     </div>
     <div class="song-sheet">
       <h3 class="title">推荐歌单</h3>
       <ul class="list">
         <li v-for="item in songsheet">
-          <img v-bind:src="item.img">
-          <p>{{item.name}}</p>
-          <p>{{item.author}}</p>
+          <router-link :to="{path:'/songname', query: {id: item._id}}">
+            <img v-bind:src="item.img">
+            <p>{{item.name}}</p>
+          </router-link>
         </li>
       </ul>
     </div>
@@ -70,6 +71,7 @@ import init from '../../plugins/init.js'
 export default {
   data(){
     return {
+      banner:'',
       songsheet:[]
     }
   },
@@ -81,8 +83,9 @@ export default {
   },
   methods:{
     async GetSongSheet(){
-      this.$http.post(this.Env.server+'/songsheet', {}, {emulateJSON:true}).then((res)=>{
+      this.$http.post(this.Env.server+'/songsheet', {url:'http://music.163.com/#/discover'}, {emulateJSON:true}).then((res)=>{
         if (res.body.code) {
+          this.banner = res.body.data.banner;
           this.songsheet = res.body.data.result;
         }
       }, (res)=> {
@@ -115,7 +118,7 @@ export default {
     }
     p{
       font-size: 20/@rem;
-      height: 30/@rem;
+      height: 60/@rem;
       padding: 0 10/@rem;
       line-height: 30/@rem;
       overflow: hidden;
