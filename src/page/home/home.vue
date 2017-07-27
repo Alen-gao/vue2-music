@@ -7,31 +7,10 @@
     <div class="song-sheet">
       <h3 class="title">推荐歌单</h3>
       <ul class="list">
-        <li>
-          <img src="../../images/song/01.jpg">
-          <p>黄家驹专辑</p>
+        <li v-for="item in songsheet">
+          <img v-bind:src="item.img">
+          <p>{{item.name}}</p>
         </li>
-        <li>
-          <img src="../../images/song/02.jpg">
-          <p>周杰伦专辑</p>
-        </li>
-        <li>
-          <img src="../../images/song/03.jpg">
-          <p>刘德华专辑</p>
-        </li>
-        <li>
-          <img src="../../images/song/04.jpg">
-          <p>林俊杰专辑</p>
-        </li>
-        <li>
-          <img src="../../images/song/05.jpg">
-          <p>许巍专辑</p>
-        </li>
-        <li>
-          <img src="../../images/song/06.jpg">
-          <p>FIR专辑</p>
-        </li>
-
       </ul>
     </div>
     <div class="newsong-list">
@@ -88,8 +67,27 @@
 import mainTop from '../../components/header/mainhead'
 import init from '../../plugins/init.js'
 export default {
+  data(){
+    return {
+      songsheet:[]
+    }
+  },
   components:{
     mainTop
+  },
+  mounted(){
+    this.GetSongSheet();
+  },
+  methods:{
+    async GetSongSheet(){
+      this.$http.post(this.Env.server+'/songsheet', {}, {emulateJSON:true}).then((res)=>{
+        if (res.body.code) {
+          this.songsheet = res.body.data.result;
+        }
+      }, (res)=> {
+        console.log(res.status);
+      });
+    }
   }
 }
 </script>

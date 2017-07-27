@@ -1,8 +1,8 @@
 <template>
   <ul class="top-tab">
-    <li class="tab-item active" v-model="ligth"><router-link to="/" v-on:click="higtligth(0)">个性推荐</router-link></li> 
-    <li class="tab-item" v-model="ligth"><router-link to="/songlist" v-on:click="higtligth(1)">歌单</router-link></li>
-    <li class="tab-item" v-model="ligth"><router-link to="/search" v-on:lick="higtligth(2)">搜素</router-link></li>
+    <li class="tab-item" v-bind:class="(Env.tabindex==0 ? 'active': '')" @click="higtligth(0)"><router-link to="/">个性推荐</router-link></li> 
+    <li class="tab-item" v-bind:class="(Env.tabindex==1 ? 'active': '')" @click="higtligth(1)"><router-link to="/songlist">歌单</router-link></li>
+    <li class="tab-item" v-bind:class="(Env.tabindex==2 ? 'active': '')" @click="higtligth(2)"><router-link to="/search">搜素</router-link></li>
   </ul>
 </template>
 
@@ -10,13 +10,15 @@
 export default {
   data(){
     return {
-      ligth: 100
+      
     }
   },
+  mounted(){
+    this.higtligth();
+  },
   methods: {
-    higtligth(index){
-      console.log('index', index);
-      this.ligth = index;
+    async higtligth(index){
+      this.Env.tabindex = index;
     }
   }
 }
