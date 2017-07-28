@@ -86,4 +86,46 @@ router.post('/search', function(req, res, next) {
   
 });
 
+router.post('/playlist', function(req, res, next){
+	var url = req.body.url;
+	nodegrass.get(url, function(data,status,headers){
+
+		var $ = cheerio.load(data);
+		var playli = [], songinfor= {}, userinfor= {};
+		songinfor.maximg = $('.m-info').find('.u-cover-dj').find('img').data('src');
+		songinfor.minimg = $('.m-info').find('.u-cover-dj').find('img').attr('src');
+		songinfor.title = $('.m-info').find('.cnt').find('.tit').find('.f-ff2').text();
+		songinfor.title = $('.m-info').find('.cnt').find('.tit').find('.f-ff2').text();
+		songinfor.describe = $('.m-info').find('.album-desc-dot').text();
+		songinfor.number = $('.m-info').find('#content-operation').find('.u-btni-fav>i').text();
+		songinfor.message = $('.m-info').find('#content-operation').find('.u-btni-cmmt>i').text();
+		songinfor.download = $('.m-info').find('#content-operation').find('.u-btni-dl>i').text();
+		songinfor.share = $('.m-info').find('#content-operation').find('.u-btni-share>i').text();
+		userinfor.img = $('.m-info').find('.user').find('.face>img').attr('src');
+		userinfor.userurl = $('.m-info').find('.user').find('.name>a').attr('href');
+		userinfor.name = $('.m-info').find('.user').find('.name>a').text();
+		userinfor.time = $('.m-info').find('.user').find('.time').text();
+
+
+		$('.m-table').find('tbody').find('tr').each(function(index, item){
+		  var obj = {};
+		  obj.resid = $(this).find('.left').find('.ply').data('res-id');
+		  obj.sid = $(this).find('.left').find('.ply').data('res-data');
+		  obj.url = $(this).find('.f-cb').find('.ttc').find('a').attr('href');
+		  obj.longname = $(this).find('.f-cb').find('.ttc').find('a>b').attr('title');
+		  obj.name = $(this).find('.f-cb').find('.ttc').find('a>b').text();
+		  obj.time = $(this).find('.s-fc3').find('.u-dur').text();
+		  obj.authorurl = $(this).find('td').eq(3).find('a').attr('href');
+		  obj.author = $(this).find('td').eq(3).find('a').text();
+		  obj.albumurl = $(this).find('td').eq(4).find('a').attr('href');
+		  obj.album = $(this).find('td').eq(4).find('a').text();
+		  playli.push(obj);
+		});
+		res.send({code:1, data:{message:'加载成功！', songinfor:songinfor, userinfor:userinfor,playli:playli }});
+
+	},'utf-8').on('error', function(e) {
+    console.log("Got error: " + e.message);
+	});
+});
+
 module.exports = router;

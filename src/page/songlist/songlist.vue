@@ -15,7 +15,7 @@
       </h3>
       <ul>
         <li class="sizing" v-for="item in songsheet">
-          <router-link :to="{path:'/songname', query: {id: item.sid}}">
+          <router-link :to="{path:'/songname', query: {sid: item.sid}}">
             <div class="song-list-img"><img v-bind:src="item.img" /></div>
             <p>{{item.name}}</p>
             <p>{{item.author}}</p>

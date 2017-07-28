@@ -8,7 +8,7 @@
       <h3 class="title">推荐歌单</h3>
       <ul class="list">
         <li v-for="item in songsheet">
-          <router-link :to="{path:'/songname', query: {id: item.sid}}">
+          <router-link :to="{path:'/songname', query: {sid: item.sid}}">
             <img v-bind:src="item.img">
             <p>{{item.name}}</p>
           </router-link>
@@ -16,15 +16,17 @@
       </ul>
     </div>
     <div class="newsong-list">
-      <h3 class="title">榜单</h3>
+      <h3 class="title">推荐歌单</h3>
       <ul>
         <li v-for="item in newsong">
-          <router-link :to="{path:'/songplay', query: {id: item.sid}}">
-            <div class="max">
-              <p class="name">{{item.name}}</p>
-              <span class="des"></span>
+          <router-link :to="{path:'/songplay', query: {sid: item.sid}}">
+            <div class="item">
+              <div class="max">
+                <p class="name">{{item.name}}</p>
+                <span class="des"></span>
+              </div>
+              <div class="min"><span class="iconfont">&#xe663;</span></div>
             </div>
-            <div class="min"><span class="iconfont">&#xe663;</span></div>
           </router-link>
         </li>
       </ul>
@@ -91,6 +93,37 @@ export default {
       padding: 0 10/@rem;
       line-height: 30/@rem;
       overflow: hidden;
+    }
+  }
+}
+.newsong-list {
+  ul {
+    margin: 0 10/@rem;
+    display: block;
+    li {
+      width: 100%;
+      height: 60/@rem;
+      a {
+        width: 100%;
+        display: block;
+      }
+      .item {
+        display:flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items:baseline;
+        align-content: space-between;
+        .max {
+          flex: 5;
+          .name {}
+          .des {
+            font-size: 16/@rem;
+          }
+        }
+        .min {
+          flex: 1;
+        }
+      }
     }
   }
 }

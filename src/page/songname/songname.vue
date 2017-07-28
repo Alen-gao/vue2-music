@@ -78,8 +78,32 @@
 import mainTop from '../../components/header/head'
 import init from '../../plugins/init.js'
 export default {
+  data(){
+    return {
+      playlist:[]
+    }
+  },
   components:{
     mainTop
+  },
+  mounted(){ 
+    this.GetSongList();
+  },
+  methods:{
+    async GetSongList(){
+      let url = 'http://music.163.com/#/playlist?id='+this.$route.query.sid;
+      console.log('url',url);
+      this.$http.post(this.Env.server+'/playlist', {url:url}, {emulateJSON:true}).then((res)=>{
+        console.log(res.body);
+        if (res.body.code) {
+          // this.banner = res.body.data.banner;
+          // this.playlist = res.body.data.playlist;
+          // this.songsheet = res.body.data.result;
+        }
+      }, (res)=> {
+        console.log(res.status);
+      });
+    }
   }
 }
 </script>

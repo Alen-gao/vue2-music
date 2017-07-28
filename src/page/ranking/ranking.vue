@@ -6,7 +6,6 @@
 
 <script>
 import mainTop from '../../components/header/mainhead'
-import init from '../../plugins/init.js'
 export default {
   components:{
     mainTop
