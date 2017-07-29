@@ -2,31 +2,34 @@
   <div class="font22">
     <main-top></main-top>
     <div class="song-top sizing">
-      <div class="song-back"><img src="../../images/song/01.jpg" /></div>
+      <div class="song-back" v-bind:style="{'background-image':'url('+songinfor.maximg+')'}"><div class="back-img" ></div></div>
       <div class="song-banner">
         <div class="left">
-          <img src="../../images/song/01.jpg" />
+
+          <img v-bind:src="songinfor.minimg" />
         </div>
         <div class="right">
-          <p class="font30">[年代感] 欧美原声吉他弹唱精选100首</p>
+          <p class="font26">{{songinfor.title}}</p>
+          <p class="font18">{{userinfor.name}}</p>
+          <p class="font18">{{userinfor.time}}</p>
         </div>
       </div>
       <div class="song-oper">
         <div>
           <p class="iconfont">&#xe6c0;</p>
-          <span>224</span>
+          <span>{{songinfor.number}}</span>
         </div>
         <div>
           <p class="iconfont">&#xe69c;</p>
-          <span>20</span>
+          <span>{{songinfor.message}}</span>
         </div>
         <div>
           <p class="iconfont">&#xe67e;</p>
-          <span>5</span>
+          <span>{{songinfor.share}}</span>
         </div>
         <div>
           <p class="iconfont">&#xe601;</p>
-          <span>下载</span>
+          <span>{{songinfor.download}}</span>
         </div>
       </div>
     </div>
@@ -42,7 +45,7 @@
             <span class="des">何洁 - 短暂的爱情</span>
           </div>
           <div class="right">
-            <span class="iconfont">&#xe614;</span>
+            <span class="iconfont">&#xe663;</span>
           </div></router-link>
         </li>
         <li><router-link  to="songplay">
@@ -54,7 +57,7 @@
             <span class="des">青鸟飞鱼 - 仙剑奇侠传三 电视原声带</span>
           </div>
           <div class="right">
-            <span class="iconfont">&#xe614;</span>
+            <span class="iconfont">&#xe663;</span>
           </div></router-link>
         </li>
         <li><router-link  to="songplay">
@@ -66,7 +69,7 @@
             <span class="des">水木年华 - 一生有你</span>
           </div>
           <div class="right">
-            <span class="iconfont">&#xe614;</span>
+            <span class="iconfont">&#xe663;</span>
           </div></router-link>
         </li>
       </ul>
@@ -80,7 +83,9 @@ import init from '../../plugins/init.js'
 export default {
   data(){
     return {
-      playlist:[]
+      playlist:[],
+      songinfor:{},
+      userinfor:{}
     }
   },
   components:{
@@ -92,13 +97,12 @@ export default {
   methods:{
     async GetSongList(){
       let url = 'http://music.163.com/#/playlist?id='+this.$route.query.sid;
-      console.log('url',url);
       this.$http.post(this.Env.server+'/playlist', {url:url}, {emulateJSON:true}).then((res)=>{
         console.log(res.body);
         if (res.body.code) {
-          // this.banner = res.body.data.banner;
-          // this.playlist = res.body.data.playlist;
-          // this.songsheet = res.body.data.result;
+          this.playlist = res.body.data.playlist;
+          this.songinfor = res.body.data.songinfor;
+          this.userinfor = res.body.data.userinfor;
         }
       }, (res)=> {
         console.log(res.status);
@@ -128,13 +132,19 @@ export default {
     left: 0;
     position: absolute;
     z-index: 0;
+    background-size: 100%;
+    webkit-filter: blur(20px); /* Chrome, Opera */
+    -moz-filter: blur(20px);
+    -ms-filter: blur(20px);    
+    filter: blur(20px);
+    .back-img{
+      width: 100%;
+      height: 100%;
+    }
     img {
       width: 100%;
       height: 100%;
-      webkit-filter: blur(60px); /* Chrome, Opera */
-      -moz-filter: blur(60px);
-      -ms-filter: blur(60px);    
-      filter: blur(60px);
+      
     }
   }
   .song-banner {
@@ -144,14 +154,19 @@ export default {
     z-index: 1;
     .left {
       flex: 2;
+      img {
+        max-width: 100%;
+      }
     }
     .right {
       flex: 4;
-      .font30 {
+      padding-left: 20/@rem;
+      p {
+        margin-bottom: 10/@rem;
+      }
+      .font26 {
         color: #f0f0f0;
-        font-size: 30/@rem;
-        padding-top: 20/@rem;
-        padding-left: 10/@rem;
+        font-size: 26/@rem;
       }
     }
   }
