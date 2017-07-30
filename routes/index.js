@@ -142,7 +142,8 @@ router.post('plays', function(req, res, next) {
 	nodegrass.get(url, function(data,status,headers){
 
 		var $ = cheerio.load(data);
-		
+		res.send({code: 1, data:{message:'加载成功！', result:'123'}})
+
 	},'utf-8').on('error', function(e) {
     console.log("Got error: " + e.message);
 	});

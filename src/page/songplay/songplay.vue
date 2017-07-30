@@ -68,6 +68,14 @@ export default {
           document.getElementById('play').style.webkitAnimationPlayState = "running";  //旋转动画暂停  
       } 
     }
+  },
+  async loadsong(){
+    let url = 'http://music.163.com/#/song?id='+this.$route.query.sid;
+      this.$http.post(this.Env.server+'/plays', {url:url}, {emulateJSON:true}).then((res)=>{
+        console.log(res.body);
+      }, (res)=> {
+        console.log(res.status);
+      });
   }
 
 }
