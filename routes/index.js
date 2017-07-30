@@ -131,6 +131,22 @@ router.post('/playlist', function(req, res, next){
 	},'utf-8').on('error', function(e) {
     console.log("Got error: " + e.message);
 	});
+
+});
+
+
+router.post('plays', function(req, res, next) {
+
+	var url = req.body.url;
+
+	nodegrass.get(url, function(data,status,headers){
+
+		var $ = cheerio.load(data);
+		
+	},'utf-8').on('error', function(e) {
+    console.log("Got error: " + e.message);
+	});
+		
 });
 
 module.exports = router;
